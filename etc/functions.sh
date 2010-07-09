@@ -21,8 +21,11 @@ SetupEnviornment() {
   # This function sets up RUBYLIB and PATH
   if [ -z "${facter_plabs_suite_envissetup:-}" ]; then
     facter_plabs_suite_envissetup=true
-    PATH="${FACTER_PLABS_PREFIX}/suite/${FACTER_PLABS_SUITE}/bin:${PATH:-}"
-    RUBYLIB="${FACTER_PLABS_PREFIX}/suite/${FACTER_PLABS_SUITE}/lib:${RUBYLIB:-}"
+    # These appear in reverse order since we're unshifting items to the front.
+    PATH="${FACTER_PLABS_PREFIX}/puppetlabs-bootstrap/suite/common/bin:${PATH:-}"
+    PATH="${FACTER_PLABS_PREFIX}/puppetlabs-bootstrap/suite/${FACTER_PLABS_SUITE}/bin:${PATH:-}"
+    RUBYLIB="${FACTER_PLABS_PREFIX}/puppetlabs-bootstrap/suite/common/lib:${RUBYLIB:-}"
+    RUBYLIB="${FACTER_PLABS_PREFIX}/puppetlabs-bootstrap/suite/${FACTER_PLABS_SUITE}/lib:${RUBYLIB:-}"
     export PATH RUBYLIB
   fi
 }
