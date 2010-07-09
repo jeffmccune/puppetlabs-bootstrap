@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# 2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+#
+# This script sets up the environment properly
+# to execute arbitrary commands from runtime suites
+# installed in /opt/puppetlabs/puppetlabs-bootstrap/suites
+#
+# The default suite is "bootstrap"
+
+exit 0
+
+# EOF
