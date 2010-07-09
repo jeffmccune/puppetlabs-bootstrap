@@ -4,6 +4,10 @@ Jeff McCune <jeff@puppetlabs.com>
 This project provides the means to bootstrap fully functional
 puppet systems.
 
+Please report issues with this project at:
+ * http://projects.puppetlabs.com/projects/modules
+ * Sign in to file a new issue ticket
+
 The use cases of these systems are:
  * Production. puppet master, dashboard, etc...
  * Evaluation. puppet for exploring new versions and features.
