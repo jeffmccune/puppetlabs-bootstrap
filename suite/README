@@ -1,0 +1,8 @@
+Suites Available
+================
+
+== bootstrap ==
+2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+This is the "internal" stable version of puppet used to configure the
+rest of the system.
+
