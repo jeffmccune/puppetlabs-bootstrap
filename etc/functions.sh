@@ -21,8 +21,8 @@ SetupEnviornment() {
   # This function sets up RUBYLIB and PATH
   if [ -z "${facter_plabs_suite_envissetup:-}" ]; then
     facter_plabs_suite_envissetup=true
-    PATH="${FACTER_PLABS_PREFIX}/suite/${FACTER_PLABS_SUITE}/bin:${PATH}"
-    RUBYLIB="${FACTER_PLABS_PREFIX}/suite/${FACTER_PLABS_SUITE}/lib:${RUBYLIB}"
+    PATH="${FACTER_PLABS_PREFIX}/suite/${FACTER_PLABS_SUITE}/bin:${PATH:-}"
+    RUBYLIB="${FACTER_PLABS_PREFIX}/suite/${FACTER_PLABS_SUITE}/lib:${RUBYLIB:-}"
     export PATH RUBYLIB
   fi
 }
