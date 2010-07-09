@@ -1,5 +1,12 @@
 Suites Available
 ================
+2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+This document lists the suites (puppet runtime environments)
+available in this project.
+
+== share ==
+This suite contains puppet modules downloaded from
+http://forge.puppetlabs.com as-is without modification.
 
 == bootstrap ==
 2010-07-09 Jeff McCune <jeff@puppetlabs.com>

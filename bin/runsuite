@@ -6,8 +6,15 @@
 # to execute arbitrary commands from runtime suites
 # installed in /opt/puppetlabs/puppetlabs-bootstrap/suites
 #
-# The default suite is "bootstrap"
+# The default suite is "bootstrap" defined in functions.sh
 
-exit 0
+# Set the default puppetlabs prefix as a facter fact if not set.
+: ${FACTER_PLABS_PREFIX:=/opt/puppetlabs}
+
+source "${FACTER_PLABS_PREFIX}"/etc/functions.sh
+# Configures RUBYLIB and PATH based on the suite.
+SetupEnviornment
+
+exec $@
 
 # EOF
