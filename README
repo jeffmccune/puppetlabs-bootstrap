@@ -4,6 +4,11 @@ Jeff McCune <jeff@puppetlabs.com>
 This project provides the means to bootstrap fully functional
 puppet systems.
 
+The project will eventually be packaged for distribution,
+so only the bare requirements to get puppet running should be
+included here.  This project will be responsible for bringing
+up more up to date suites of tools like puppet 2.6.0.
+
 Please report issues with this project at:
  * http://projects.puppetlabs.com/projects/modules
  * Sign in to file a new issue ticket
