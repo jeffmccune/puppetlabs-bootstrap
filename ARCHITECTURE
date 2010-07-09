@@ -1,0 +1,12 @@
+Suites
+======
+2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+This project uses puppet to bootstrap puppet.  In order to to accommodate
+this requirement stable versions of puppet will be placed into the suite
+sub directory.  A wrapper script will configure the RUBYLIB and PATH
+environment variables to use the desired version of puppet.  This
+is modeled after the Solaris system of xpg* paths.  This also allows a
+stable version of puppet to configure and test development and unstable
+versions of puppet.  This concept is also similar to runtime environments
+
+
