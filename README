@@ -1,0 +1,22 @@
+Jeff McCune <jeff@puppetlabs.com>
+2010-07-07
+
+This project provides the means to bootstrap fully functional
+puppet systems.
+
+The use cases of these systems are:
+ * Production. puppet master, dashboard, etc...
+ * Evaluation. puppet for exploring new versions and features.
+ * Testing.  Execute performance tests against arbitrary puppet versions.
+ * Demonstrations.  Create virtual machines or enviornments for demons.
+ * Training.  Similar to demonstrations, but distributable to students.
+ * Integration.  Provide a software stack that's tested and integrated well.
+
+The goals of this project:
+ * Ease of use.  Customization should be straight forward.
+ * Follow best practices.  Module standards, documentation, etc...
+ * Publish modules and code to the Forge to help the community.
+ * Provide a stable software stack for the community.
+ * Mitigate issues integrating projects like rubygems, passenger, etc..
+ * Provide clear documentation and solutions to common problems.
+
