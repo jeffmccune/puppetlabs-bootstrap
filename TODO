@@ -1,0 +1,5 @@
+2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+* Add a builtin copy of puppet and facter to allow puppet to bootstrap
+  puppet.
+* Add a wrapper script to easily execute this version of puppet.
+
