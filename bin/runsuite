@@ -11,7 +11,7 @@
 # Set the default puppetlabs prefix as a facter fact if not set.
 : ${FACTER_PLABS_PREFIX:=/opt/puppetlabs}
 
-source "${FACTER_PLABS_PREFIX}"/etc/functions.sh
+source "${FACTER_PLABS_PREFIX}"/puppetlabs-bootstrap/etc/functions.sh
 # Configures RUBYLIB and PATH based on the suite.
 SetupEnviornment
 
