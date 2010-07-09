@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# 2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+#
+# This script explicitly runs puppet from the bootstrap
+# suite with modulepath set properly.
+#
+
+# Set the default puppetlabs prefix as a facter fact if not set.
+: ${FACTER_PLABS_PREFIX:=/opt/puppetlabs}
+
+source "${FACTER_PLABS_PREFIX}"/puppetlabs-bootstrap/etc/functions.sh
+# Configures RUBYLIB and PATH based on the suite.
+SetupEnviornment
+
+pth="${FACTER_PLABS_PREFIX}/puppetlabs-bootstrap"
+suite="${pth}/suite/${FACTER_PLABS_SUITE}"
+
+exec puppet --confdir "${pth}"/etc --modulepath "${suite}/modules:${pth}/suite/common/modules" $@
+
+# EOF
