@@ -24,13 +24,13 @@
 #
 # Sample Usage:
 #
-define puppetlabs::localhostname(hostname = false,
-                                 hostdomain = false,
-                                 address = false,
-                                 aliases = [])
+define puppetlabs::localhostname($hostname   = false,
+                                 $hostdomain = false,
+                                 $address    = false,
+                                 $aliases    = [] )
 {
   # Variables
-  $hostname_real   = $hostname ? { false => name, default => $hostname }
+  $hostname_real   = $hostname ? { false => $name, default => $hostname }
   $hostdomain_real = $hostdomain ? { false => $domain, default => $hostdomain }
   $address_real    = $address ? { false => $ipaddress, default => $address }
   $aliases_real    = $aliases
@@ -43,7 +43,7 @@ define puppetlabs::localhostname(hostname = false,
   }
   # Resources
   exec {
-    "set-hostname-${$hostname_real}":
+    "set-hostname-${hostname_real}":
       command => "/bin/hostname ${hostname_real}.${hostdomain_real}";
   }
   file {
