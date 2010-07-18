@@ -1,6 +1,8 @@
 # Class: puppetlabs
 #
-# This module manages puppetlabs
+# This module provides utilties to manage resources required
+# for building demonstration, training, and performance testing
+# machines.
 #
 # Parameters:
 #
@@ -12,5 +14,5 @@
 #
 class puppetlabs {
 
-
 }
+# EOF
