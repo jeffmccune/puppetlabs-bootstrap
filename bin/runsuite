@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# 2010-07-09 Jeff McCune <jeff@puppetlabs.com>
+#
+# This script sets up the environment properly
+# to execute arbitrary commands from runtime suites
+# installed in /opt/puppetlabs/puppetlabs-bootstrap/suites
+#
+# The default suite is "bootstrap" defined in functions.sh
+
+# Set the default puppetlabs prefix as a facter fact if not set.
+: ${FACTER_PLABS_PREFIX:=/opt/puppetlabs}
+
+source "${FACTER_PLABS_PREFIX}"/puppetlabs-bootstrap/etc/functions.sh
+# Configures RUBYLIB and PATH based on the suite.
+SetupEnviornment
+
+exec $@
+
+# EOF
