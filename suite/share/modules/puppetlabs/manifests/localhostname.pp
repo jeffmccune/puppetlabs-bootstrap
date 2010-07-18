@@ -27,14 +27,15 @@
 define puppetlabs::localhostname($hostname   = false,
                                  $hostdomain = false,
                                  $address    = false,
-                                 $aliases    = [] )
+                                 $aliases    = false,)
 {
   # Variables
+  $module          = "puppetlabs"
   $hostname_real   = $hostname ? { false => $name, default => $hostname }
   $hostdomain_real = $hostdomain ? { false => $domain, default => $hostdomain }
   $address_real    = $address ? { false => $ipaddress, default => $address }
-  $aliases_real    = $aliases
-  $module          = "puppetlabs"
+  $aliases_real    = $aliases ? { false => $hostname_real, default => $aliases }
+  $fqdn_real       = "${hostname_real}.${hostdomain_real}"
   # Resource defaults
   File {
     owner => "0",
@@ -44,14 +45,15 @@ define puppetlabs::localhostname($hostname   = false,
   # Resources
   exec {
     "set-hostname-${hostname_real}":
-      command => "/bin/hostname ${hostname_real}.${hostdomain_real}";
+      command => "/bin/hostname ${fqdn_real}",
+      unless  => "/bin/hostname | /bin/grep -qx ${fqdn_real}",
   }
   file {
     "/etc/sysconfig/network":
       content => template("${module}/sysconfig_network.erb");
   }
   host {
-    "${hostname_real}":
+    "${fqdn_real}":
       host_aliases => $aliases_real,
       ensure       => "present",
       ip           => "${address_real}";
