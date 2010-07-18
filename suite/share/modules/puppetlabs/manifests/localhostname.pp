@@ -27,7 +27,7 @@
 define puppetlabs::localhostname($hostname   = false,
                                  $hostdomain = false,
                                  $address    = false,
-                                 $aliases    = false,)
+                                 $aliases    = false)
 {
   # Variables
   $module          = "puppetlabs"
