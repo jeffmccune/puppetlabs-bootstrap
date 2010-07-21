@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Create a puppet user and group.
+#
+set -e
+set -u
+envpuppet puppet resource group puppet uid=190 gid=190 ensure=present
+envpuppet puppet resource user puppet home=/var/lib/puppet \
+  uid=190 gid=190 ensure=present
+
