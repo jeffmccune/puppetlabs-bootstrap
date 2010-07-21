@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# 2010-07-20 Jeff McCune <jeff@puppetlabs.com>
+#
+# Install ruby and git
+#
+
+pkg() {
+  local package="$1"
+  if ! (rpm -q "${package}" > /dev/null)
+  then
+    yum -y install "${package}"
+  fi
+}
+
+pkg ruby
+pkg rubygems
+pkg rdoc
+pkg git

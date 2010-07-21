@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# 2010-07-20 Jeff McCune <jeff@puppetlabs.com>
+#
+# Install the EPEL repository support.
+
+set -e
+set -u
+
+# https://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+if ! (rpm -q epel-release > /dev/null)
+then
+    rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/i386/epel-release-5-3.noarch.rpm
+fi
+
+#
