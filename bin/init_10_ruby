@@ -15,5 +15,5 @@ pkg() {
 
 pkg ruby
 pkg rubygems
-pkg rdoc
+pkg ruby-rdoc
 pkg git
