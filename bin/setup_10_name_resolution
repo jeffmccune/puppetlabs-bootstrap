@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+
+set -e
+set -u
+
+envpuppet puppet resource host $(hostname) \
+  ip=$(envpuppet facter ipaddress) \
+  host_aliases=puppet
+
