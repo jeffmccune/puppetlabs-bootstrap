@@ -14,6 +14,7 @@ define puppetlabs::account(
   $homedir=false,
   $uid,
   $gid,
+  $password='!!',
   $groups=["0"],
   $email=false,
   $comment="")
@@ -31,6 +32,7 @@ define puppetlabs::account(
   }
   $uid_real = $uid ? { false => undef, default => $uid }
   $gid_real = $gid ? { false => undef, default => $gid }
+  $password_real = $password
 ####
   File {
     owner => $uid_real,
@@ -46,6 +48,7 @@ define puppetlabs::account(
   user { "${name_real}":
     ensure => "present",
     home => $homedir_real,
+    password => $password_real,
     uid => $uid_real,
     gid => $gid_real,
   }
