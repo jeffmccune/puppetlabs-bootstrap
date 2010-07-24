@@ -56,6 +56,9 @@ define puppetlabs::account(
     "$homedir_real":
       ensure => directory,
       require => [ User["$name_real"], Group["$name_real"] ];
+    "${homedir_real}/.bashrc":
+      mode => "0755",
+      source => "${source}/bashrc";
     "${homedir_real}/.bash_profile":
       mode => "0755",
       source => "${source}/bash_profile";
