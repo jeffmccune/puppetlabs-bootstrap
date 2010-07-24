@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# 2010-07-24 Jeff McCune <jeff@puppetlabs.com>
+#
+# This script sets up a local user account.
+#
+
+: ${PREFIX:=/opt/puppetlabs}
+: ${MODULES:=puppetlabs-bootstrap/suite/share/modules}
+
+exec runsuite puppet -v --modulepath="${PREFIX}/${MODULES}" \
+   "${PREFIX}/${MODULES}/puppetlabs/tests/account.pp
+
