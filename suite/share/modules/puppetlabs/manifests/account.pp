@@ -33,6 +33,7 @@ define puppetlabs::account(
   $uid_real = $uid ? { false => undef, default => $uid }
   $gid_real = $gid ? { false => undef, default => $gid }
   $password_real = $password
+  $groups_real = $groups
 ####
   File {
     owner => $uid_real,
@@ -51,6 +52,7 @@ define puppetlabs::account(
     password => $password_real,
     uid => $uid_real,
     gid => $gid_real,
+    groups => $groups_real,
   }
   file {
     "$homedir_real":
