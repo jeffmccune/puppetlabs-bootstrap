@@ -15,7 +15,7 @@ define puppetlabs::account(
   $uid,
   $gid,
   $password='!!',
-  $groups=["0"],
+  $groups=[ "wheel", "adm" ],
   $email=false,
   $comment="")
 {
