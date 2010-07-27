@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# 2010-07-26 Jeff McCune <jeff@puppetlabs.com>
+#
+# This script sets up a fedora mock system.
+#
+
+: ${PREFIX:=/opt/puppetlabs}
+: ${MODULES:=puppetlabs-bootstrap/suite/share/modules}
+
+exec runsuite puppet -v --modulepath="${PREFIX}/${MODULES}" \
+   "${PREFIX}/${MODULES}/puppetlabs/tests/mock.pp"
+
