@@ -25,9 +25,9 @@ class puppetlabs::mock {
   user {
     "mock":
       ensure     => "present",
+      gid        => "mock",
       home       => "/var/lib/mock",
       comment    => "Fedora Mock Build",
-      password   => '!!',
       shell      => "/bin/bash",
   }
   group { "mock": ensure => "present" }
