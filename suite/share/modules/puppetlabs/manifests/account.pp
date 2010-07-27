@@ -64,6 +64,8 @@ define puppetlabs::account(
     "${homedir_real}/.bash_profile":
       mode => "0755",
       source => "${source}/bash_profile";
+    "${homedir_real}/.screenrc":
+      source => "${source}/screenrc";
     "${homedir_real}/.ssh":
       ensure => directory,
       mode => "0700";
