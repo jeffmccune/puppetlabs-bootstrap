@@ -1,7 +1,12 @@
-# $1$h1sO8/t5$7KwwnndbCBxV3zgwjh.zs0 is the hash for "puppet"
+# Jeff McCune <jeff@puppetlabs.com> 2010-08-03
+# NOTE: This is "finished" and working as far as I'm concerned.
+#
+# The init_40_account script calls this manifest.
 
+# Don't manage the root account, but deploy RC Files to root
 puppetlabs::rcfiles { "root": homedir => "/root" }
 
+# This sets up accounts for all of Professional Services
 puppetlabs::account {
   "jeff":
     uid      => 402,
