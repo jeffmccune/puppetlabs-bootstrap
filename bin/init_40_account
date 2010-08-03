@@ -9,5 +9,5 @@
 : ${MODULES:=puppetlabs-bootstrap/suite/share/modules}
 
 exec runsuite puppet -v --modulepath="${PREFIX}/${MODULES}" \
-   "${PREFIX}/${MODULES}/puppetlabs/tests/account.pp"
+   "${PREFIX}/${MODULES}/puppetlabs/tests/account.pp" $@
 
