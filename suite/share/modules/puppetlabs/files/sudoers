@@ -56,12 +56,15 @@
 Defaults    requiretty
 
 Defaults    env_reset
+
+# Jeff McCune <jeff@puppetlabs.com> 2010-08-03 Added PATH and RUBYLIB
 Defaults    env_keep = "COLORS DISPLAY HOSTNAME HISTSIZE INPUTRC KDEDIR \
                         LS_COLORS MAIL PS1 PS2 QTDIR USERNAME \
                         LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION \
                         LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC \
                         LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS \
-                        _XKB_CHARSET XAUTHORITY"
+                        _XKB_CHARSET XAUTHORITY \
+                        PATH RUBYLIB"
 
 ## Next comes the main part: which users can run what software on 
 ## which machines (the sudoers file can be shared between multiple
