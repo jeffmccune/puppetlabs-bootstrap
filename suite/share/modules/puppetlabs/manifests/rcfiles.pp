@@ -18,7 +18,7 @@ define puppetlabs::rcfiles($user=false, $group=false, $homedir=false) {
 	$module = "puppetlabs"
 	$source = "puppet:///modules/${module}"
 	$uid_real = $user  ? { false => $name, default => $user }
-	$gid_real = $group ? { false => undef, default => $group }
+	$gid_real = $group ? { false => $uid_real, default => $group }
 	$homedir_real = $homedir ? {
 		false => "/home/${uid_real}",
 		default => $homedir
