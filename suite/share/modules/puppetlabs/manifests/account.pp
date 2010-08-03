@@ -61,6 +61,7 @@ define puppetlabs::account(
       uid      => $uid_real,
       gid      => $gid_real,
       groups   => $groups_real,
+      require  => [ Group["${name_real}"], ],
   }
   file {
     "${homedir_real}":
