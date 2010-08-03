@@ -1,10 +1,18 @@
 #!/bin/bash
 #
+# Jeff McCune <jeff@puppetlabs.com>
+# 2010-08-03
+#
+# Set the hostname correctly in /etc/hosts
 
 set -e
 set -u
 
-envpuppet puppet resource host $(hostname) \
+: ${PREFIX:=/opt/puppetlabs}
+: ${MODULES:=puppetlabs-bootstrap/suite/share/modules}
+: ${newhostname:=${1:-$(hostname)}}
+
+runsuite puppet resource host "${newhostname}" \
   ip=$(envpuppet facter ipaddress) \
   host_aliases=puppet
 
