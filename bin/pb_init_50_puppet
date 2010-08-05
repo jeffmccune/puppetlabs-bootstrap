@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Jeff McCune <jeff@puppetlabs.com>
+# 2010-08-05
+#
+
+: ${PREFIX:=/opt/puppetlabs}
+: ${PUPPETURL:="git://github.com/reductivelabs/puppet.git"}
+
+set -e
+set -u
+
+if test -d "${PREFIX}/puppet"
+  echo "${PREFIX}/puppet already exists.  Aborting"
+  exit 1
+fi
+
+echo "Initializing ${PREFIX}/puppet ..."
+cd "${PREFIX}"
+
+echo "Cloning ${PUPPETURL} ..."
+git clone "${PUPPETURL}"
+exit $?

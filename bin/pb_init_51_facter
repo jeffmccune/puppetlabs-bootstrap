@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Jeff McCune <jeff@puppetlabs.com>
+# 2010-08-05
+#
+
+: ${PREFIX:=/opt/puppetlabs}
+: ${FACTERURL:="git://github.com/reductivelabs/facter.git"}
+
+set -e
+set -u
+
+if test -d "${PREFIX}/facter"
+  echo "${PREFIX}/facter already exists.  Aborting"
+  exit 1
+fi
+
+echo "Initializing ${PREFIX}/facter ..."
+cd "${PREFIX}"
+
+URL="${FACTERURL}"
+echo "Cloning ${URL} ..."
+
+git clone "${URL}"
+exit $?
