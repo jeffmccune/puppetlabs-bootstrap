@@ -1,6 +1,31 @@
 Jeff McCune <jeff@puppetlabs.com>
 2010-07-07
 
+Quick Start
+===========
+
+* Kickstart a new machine - linux text ks=http://bit.ly/puppetks
+* Log in as root via SSH
+* Unpack a copy of puppetlabs-bootstrap in /opt/puppetlabs/puppetlabs-bootstrap
+* export PATH=/opt/puppetlabs/puppetlabs-bootstrap/bin:$PATH
+* Use pb_ as a prefix and do tab-completion on the shell to see the setup
+  steps available to you.  The scripts are designed to be executed in order.
+
+Once the account initialization script has been executed, you may ssh
+into the machine using your personal account and ssh key authorization
+
+Sudo will be configured to not require passwords (Accounts created by
+puppetlabs-bootstrap do not have passwords) and will preserve the path.
+
+To update when running under your own account:
+* cd /opt/puppetlabs/puppetlabs-bootstrap
+* sudo SSH_AUTH_SOCK=$SSH_AUTH_SOCK git fetch upstream
+* sudo checkout master
+* sudo git merge upstream/master
+
+Overview
+========
+
 This project provides the means to bootstrap fully functional
 puppet systems.
 
