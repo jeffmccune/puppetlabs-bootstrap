@@ -28,4 +28,9 @@ puppetlabs::account {
     gid      => 405,
     comment  => "Nan Liu",
     password => '!!';
+  "cody":
+    uid      => 406,
+    gid      => 406,
+    comment  => "Cody Herriges",
+    password => '!!';
 }
