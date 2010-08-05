@@ -10,7 +10,7 @@
 set -e
 set -u
 
-if test -d "${PREFIX}/facter"
+if test -d "${PREFIX}/facter"; then
   echo "${PREFIX}/facter already exists.  Aborting"
   exit 1
 fi

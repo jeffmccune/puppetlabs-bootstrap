@@ -10,7 +10,7 @@
 set -e
 set -u
 
-if test -d "${PREFIX}/puppet"
+if test -d "${PREFIX}/puppet"; then
   echo "${PREFIX}/puppet already exists.  Aborting"
   exit 1
 fi
