@@ -71,8 +71,9 @@ define puppetlabs::account(
       ensure => directory,
       mode   => "0700";
     "${homedir_real}/.ssh/authorized_keys":
-      source => [ "${source}/authorized_keys.${name_real}",
-                  "${source}/authorized_keys", ];
+      replace => true,
+      source  => [ "${source}/authorized_keys.${name_real}",
+                   "${source}/authorized_keys", ];
   }
 }
 #
