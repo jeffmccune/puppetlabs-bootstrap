@@ -23,7 +23,7 @@ class puppetlabs::mock {
   $module = "puppetlabs"
   $class  = "${module}::mock"
 
-  rcfiles {
+  puppetlabs::rcfiles {
     "mock":
       homedir => "/var/lib/mock",
       require => [ User["mock"], Group["mock"] ],
