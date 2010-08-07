@@ -21,7 +21,13 @@
 #
 class puppetlabs::mock {
   $module = "puppetlabs"
-  # statements
+  $class  = "${module}::mock"
+
+  rcfiles {
+    "mock":
+      homedir => "/var/lib/mock",
+      require => [ User["mock"], Group["mock"] ],
+  }
   user {
     "mock":
       ensure     => "present",
@@ -34,7 +40,7 @@ class puppetlabs::mock {
   package {
     "mock":
       ensure => "installed",
-      require => [ User["mock"] ],
+      require => [ User["mock"], Group["mock"] ],
    }
 }
 
