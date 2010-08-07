@@ -1,0 +1,20 @@
+#! /bin/bash
+#
+# 2010-08-07 Jeff McCune <jeff@puppetlabs.com>
+#
+# This script is expected to be called from a symbolic link.
+# It executes a manifest in manifests/ with the same name as the
+# executable base name.
+#
+
+set -e
+set -u
+
+: ${PREFIX:=/opt/puppetlabs/puppetlabs-bootstrap}
+: ${MODULES:=suite/share/modules}
+
+manifest="$(basename "$0")"
+
+exec runsuite puppet -v --modulepath="${PREFIX}/${MODULES}" \
+   "${PREFIX}/manifests/${manifest}.pp" $@
+
