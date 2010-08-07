@@ -23,24 +23,17 @@ class puppetlabs::mock {
   $module = "puppetlabs"
   $class  = "${module}::mock"
 
-  puppetlabs::rcfiles {
+  puppetlabs::account {
     "mock":
-      homedir => "/var/lib/mock",
-      require => [ User["mock"], Group["mock"] ],
+      uid      => 201,
+      gid      => 201,
+      comment  => "Fedora Mock Build",
+      password => '!!';
   }
-  user {
-    "mock":
-      ensure     => "present",
-      gid        => "mock",
-      home       => "/var/lib/mock",
-      comment    => "Fedora Mock Build",
-      shell      => "/bin/bash",
-  }
-  group { "mock": ensure => "present" }
   package {
     "mock":
       ensure => "installed",
-      require => [ User["mock"], Group["mock"] ],
+      require => [ Puppetlabs::Account["mock"] ];
    }
 }
 
