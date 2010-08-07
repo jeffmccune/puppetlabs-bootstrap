@@ -27,6 +27,7 @@ class puppetlabs::mock {
     "mock":
       uid      => 201,
       gid      => 201,
+      homedir  => "/var/lib/mock",
       comment  => "Fedora Mock Build",
       password => '!!';
   }
