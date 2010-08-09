@@ -7,7 +7,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=/opt/puppetlabs/bin:/opt/puppetlabs/puppetlabs-bootstrap/bin:$PATH:$HOME/bin
+PATH=/opt/puppetlabs/bin:/opt/puppetlabs/puppetlabs-bootstrap/bin:/sbin:/usr/sbin:$PATH:$HOME/bin
 
 export PATH
 unset USERNAME

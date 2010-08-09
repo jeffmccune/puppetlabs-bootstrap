@@ -33,11 +33,13 @@ define puppetlabs::rcfiles($user=false, $group=false, $homedir=false) {
 ####
 	file {
     "${homedir_real}/.bashrc":
-      mode => "0755",
-      source => "${source}/bashrc";
+      mode    => "0755",
+      replace => true,
+      source  => "${source}/bashrc";
     "${homedir_real}/.bash_profile":
-      mode => "0755",
-      source => "${source}/bash_profile";
+      mode    => "0755",
+      replace => true,
+      source  => "${source}/bash_profile";
     "${homedir_real}/.screenrc":
       source => "${source}/screenrc";
     "${homedir_real}/.vim":
