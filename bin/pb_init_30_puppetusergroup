@@ -4,7 +4,14 @@
 #
 set -e
 set -u
-envpuppet puppet resource group puppet gid=190 ensure=present
-envpuppet puppet resource user puppet home=/var/lib/puppet \
-  uid=190 gid=190 ensure=present
+
+runsuite ralsh group puppet gid=190 ensure=present
+runsuite ralsh user puppet home=/var/lib/puppet \
+   uid=190 gid=190 ensure=present
+
+# JJM This syntax uses puppet 2.6 features and is not contained
+# in the puppetlabs-bootstrap repository yet.
+# envpuppet puppet resource group puppet gid=190 ensure=present
+# envpuppet puppet resource user puppet home=/var/lib/puppet \
+#   uid=190 gid=190 ensure=present
 
