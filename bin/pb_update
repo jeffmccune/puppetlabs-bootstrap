@@ -1,0 +1,24 @@
+#! /bin/bash
+#
+# Jeff McCune <jeff@puppetlabs.com>
+# 2010-08-11
+#
+# This script will update the puppetlabs-bootstrap
+# project from the remote named "origin"
+#
+# TIP: Setup remote origin to point at your VM host.
+
+set -e
+set -u
+
+: ${PREFIX:=/opt/puppetlabs/puppetlabs-bootstrap}
+: ${GIT_REMOTE:=origin}
+
+cd "${PREFIX}"
+if [ ${UID:-1} -gt 0 ]; then
+  sudo SSH_AUTH_SOCK=$SSH_AUTH_SOCK git pull "${GIT_REMOTE}"
+else
+  git pull "${GIT_REMOTE}"
+fi
+
+
