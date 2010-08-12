@@ -22,14 +22,32 @@
 class puppetlabs::mock {
   $module = "puppetlabs"
   $class  = "${module}::mock"
+  $mockhome = "/var/lib/mock"
+  File {
+    owner => "201",
+    group => "201",
+    mode  => "0644",
+  }
+  # $topdir used in rpmmacros template
+  $topdir = $mockhome
 
   puppetlabs::account {
     "mock":
       uid      => 201,
       gid      => 201,
-      homedir  => "/var/lib/mock",
+      homedir  => "${mockhome}",
       comment  => "Fedora Mock Build",
-      password => '!!';
+       password => '!!';
+  }
+  # JJM RPM Build Directories
+  file {
+    [ "${mockhome}/BUILD",
+      "${mockhome}/RPMS",
+      "${mockhome}/SRPMS",
+      "${mockhome}/SOURCES",
+      "${mockhome}/SPECS" ]: ensure => "directory";
+    "${mockhome}/.rpmmacros":
+      content => template("${module}/rpmmacros.erb");
   }
   Package { ensure => "latest" }
   package {
@@ -37,6 +55,8 @@ class puppetlabs::mock {
       require => [ Puppetlabs::Account["mock"] ];
     "rpm-build":;
     "redhat-rpm-config":;
+    "make":;
+    "gcc":;
   }
 }
 
