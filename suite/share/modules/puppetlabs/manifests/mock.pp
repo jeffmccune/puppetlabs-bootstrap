@@ -31,10 +31,11 @@ class puppetlabs::mock {
       comment  => "Fedora Mock Build",
       password => '!!';
   }
+  Package { ensure => "installed" }
   package {
     "mock":
-      ensure => "installed",
       require => [ Puppetlabs::Account["mock"] ];
-   }
+    "rpm-build:;
+  }
 }
 
