@@ -35,7 +35,7 @@ class puppetlabs::mock {
   package {
     "mock":
       require => [ Puppetlabs::Account["mock"] ];
-    "rpm-build:;
+    "rpm-build":;
   }
 }
 
