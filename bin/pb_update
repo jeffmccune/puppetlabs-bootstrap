@@ -12,14 +12,12 @@ set -e
 set -u
 
 : ${PREFIX:=/opt/puppetlabs/puppetlabs-bootstrap}
-# This is disabled to pull from the configured merge setting in git
-# : ${GIT_REMOTE:=origin}
 
 cd "${PREFIX}"
 if [ ${UID:-1} -gt 0 ]; then
-  sudo SSH_AUTH_SOCK=$SSH_AUTH_SOCK git pull "${GIT_REMOTE:-}"
+  sudo SSH_AUTH_SOCK=$SSH_AUTH_SOCK git pull
 else
-  git pull "${GIT_REMOTE:-}"
+  git pull
 fi
 
 
