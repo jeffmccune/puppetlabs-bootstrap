@@ -7,35 +7,40 @@
 puppetlabs::rcfiles { "root": homedir => "/root" }
 
 # This sets up accounts for all of Professional Services
-puppetlabs::account {
-  "jeff":
-    uid      => 402,
-    gid      => 402,
-    comment  => "Jeff McCune",
-    password => '!!';
-  "teyo":
-    uid      => 403,
-    gid      => 403,
-    comment  => "Teyo Tyree",
-    password => '!!';
-  "dan":
-    uid      => 404,
-    gid      => 404,
-    comment  => "Dan Bode",
-    password => '!!';
-  "nan":
-    uid      => 405,
-    gid      => 405,
-    comment  => "Nan Liu",
-    password => '!!';
-  "cody":
-    uid      => 406,
-    gid      => 406,
-    comment  => "Cody Herriges",
-    password => '!!';
-  "james":
-    uid      => 407,
-    gid      => 407,
-    comment  => "James Turnbull",
-    password => '!!';
+Puppetlabs::Account { password => '!!' }
+puppetlabs::account { "jeff":
+  uid     => 402,
+  gid     => 402,
+  comment => "Jeff McCune",
 }
+puppetlabs::account { "teyo":
+  uid     => 403,
+  gid     => 403,
+  comment => "Teyo Tyree",
+}
+puppetlabs::account { "dan":
+  uid     => 404,
+  gid     => 404,
+  comment => "Dan Bode",
+}
+puppetlabs::account { "nan":
+  uid     => 405,
+  gid     => 405,
+  comment => "Nan Liu",
+}
+puppetlabs::account { "cody":
+  uid     => 406,
+  gid     => 406,
+  comment => "Cody Herriges",
+}
+puppetlabs::account { "james":
+  uid     => 407,
+  gid     => 407,
+  comment => "James Turnbull",
+}
+puppetlabs::account { "zach":
+  uid     => 408,
+  gid     => 408,
+  comment => "Zach Leslie",
+}
+# EOF
