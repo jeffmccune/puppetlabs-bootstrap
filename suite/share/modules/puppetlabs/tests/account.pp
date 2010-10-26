@@ -43,4 +43,8 @@ puppetlabs::account { "zach":
   gid     => 408,
   comment => "Zach Leslie",
 }
+puppetlabs::account { "hunner":
+  uid     => 409,
+  gid     => 409,
+  comment => "Hunter Haugen",
 # EOF
