@@ -8,6 +8,11 @@ puppetlabs::rcfiles { "root": homedir => "/root" }
 
 # This sets up accounts for all of Professional Services
 Puppetlabs::Account { password => '!!' }
+puppetlabs::account { "git":
+  uid     => 301,
+  gid     => 301,
+  comment => "Shared Git Account",
+}
 puppetlabs::account { "jeff":
   uid     => 402,
   gid     => 402,
